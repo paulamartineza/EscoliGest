@@ -1,0 +1,52 @@
+<div class="header">
+    <div class="header-logo">
+      <a routerLink="/">
+        <img src="/assets/images/logo.png" alt="Logo" />
+      </a>
+    </div>
+    <div class="profile-button-container">
+        <a routerLink="/inicio">Inicio</a>
+      <button class="profile-button" (click)="toggleMenu()">Perfil</button>
+      <div class="profile-menu" *ngIf="menuOpen">
+        <p class="close-menu" (click)="toggleMenu()">✖</p>
+        <a routerLink="/profile">Mi perfil</a>
+        <a routerLink="/">Cerrar sesión</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-container">
+    <form [formGroup]="reminderForm" (ngSubmit)="onEditReminder()" class="form">
+      <h2 class="form-title">Editar Recordatorio</h2>
+  
+      <div class="input-container">
+        <input formControlName="fecha" type="date" placeholder="Fecha" />
+      </div>
+  
+      <div class="input-container">
+        <input formControlName="hora" type="time" placeholder="Hora" />
+      </div>
+  
+      <div class="input-container">
+        <select formControlName="tipo">
+          <option value="" disabled selected>Selecciona un tipo</option>
+          <option *ngFor="let type of reminderTypes" [value]="type.value">
+            {{ type.label }}
+          </option>
+        </select>
+      </div>
+  
+      <div class="input-container">
+        <input formControlName="nombre" type="text" placeholder="Nombre" />
+      </div>
+  
+      <div class="input-container" >
+        <input formControlName="descripcion" type="text" placeholder="Descripción" />
+      </div>
+  
+      <button type="submit" class="cssbuttons-io-button" routerLink="/popup-window-two">
+        Editar Recordatorio
+      </button>
+    </form>
+  </div>
+  

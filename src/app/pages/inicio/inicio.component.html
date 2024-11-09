@@ -1,0 +1,40 @@
+<div class="header">
+    <div class="header-logo">
+      <a>
+        <img src="/assets/images/logo.png" alt="Logo" />
+      </a>
+    </div>
+    <div class="profile-button-container">
+      <button class="profile-button" (click)="toggleMenu()">Perfil</button>
+      <div class="profile-menu" *ngIf="menuOpen">
+        <p class="close-menu" (click)="toggleMenu()">✖</p>
+        <a routerLink="/profile">Mi perfil</a>
+        <a routerLink="/">Cerrar sesión</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="body-content">
+    <a class="card" routerLink="/calendar">
+      <img src="/assets/images/calendario.png" alt="Card Image 1" class="card-image" />
+      <div class="card-content">
+        <h3 >Calendario</h3>
+        <p>Mira todos tus recordatorios de citas, exámenes, etc.</p>
+      </div>
+    </a>
+    <a class="card" routerLink="/reminder-new">
+      <img src="/assets/images/crearnuevo.png" alt="Card Image 2" class="card-image" />
+      <div class="card-content">
+        <h3>Nuevo recordatorio</h3>
+        <p>Agrega tus citas, exámenes, etc, para que nada se te olvide.</p>
+      </div>
+    </a>
+    <a class="card" routerLink="/documents">
+      <img src="/assets/images/Documentos.png" alt="Card Image 3" class="card-image" />
+      <div class="card-content">
+        <h3>Documentos </h3>
+        <p>Encuentra artículos médicos verificados para que aprendamos juntos de la esocliosis.</p>
+      </div>
+    </a>
+  </div>
+  

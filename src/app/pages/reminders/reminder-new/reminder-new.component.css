@@ -1,0 +1,173 @@
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: hsla(261, 84%, 31%, 0.116);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Mantiene el header en la parte superior */
+  top: 20px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  z-index: 1000;
+}
+
+
+
+
+/* Logo */
+.header-logo img {
+  width: 250px;
+}
+
+/* Botón de perfil */
+.profile-button {
+  background-color: #5321a3;
+  color: #ffffff;
+  border: none;
+  padding: 7px 50px; /* Ajusta el padding para que se vea más proporcionado */
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+
+
+.profile-button-container {
+  display: flex; /* Hacer que el contenedor use flexbox */
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+.profile-button-container a {
+  padding: 12px; /* Padding del enlace */
+  margin-right: 4px; /* Margen derecho para separar del botón */
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  color: #eeeeee; /* Cambia el color del texto del enlace, si es necesario */
+  text-decoration: underline;
+}
+
+.profile-button:hover {
+  transform: scale(1.05);
+}
+
+/* Menú desplegable */
+.profile-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 8px;
+}
+
+.profile-menu p.close-menu {
+  text-align: right;
+  cursor: pointer;
+  margin: 0;
+  font-weight: bold;
+  color: #5321a3;
+}
+
+.profile-menu a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  padding: 5px 0;
+}
+
+.profile-menu a:hover {
+  color: #7f3ceb;
+}
+
+/* Estilo del contenedor del formulario */
+.form-container {
+  max-width: 400px;
+  margin: 120px auto; /* Aumenta el margen superior para que esté más abajo */
+  padding: 20px;
+  background: hsla(261, 84%, 31%, 0.116); 
+  border-radius: 8px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Otras reglas CSS permanecen igual */
+
+.form-title {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+/* Estilos para inputs y botón */
+.input-container {
+  margin-bottom: 15px;
+}
+
+.input-container input,
+.cssbuttons-io-button {
+  color: #ffffff;
+  background: transparent;
+  border-color: #ffffff;
+  padding: 0.8rem;
+  padding-right: 3rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(255, 255, 255, 0.164);
+}
+
+/* Estilo para el select */
+.input-container select {
+  width: 100%;
+  padding: 8px;
+  font-size: 1em;
+  margin-top: 4px;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background: transparent; /* Fondo transparente */
+  color: #ffffff; /* Color del texto */
+  appearance: none; /* Oculta la apariencia predeterminada */
+  background: hsla(261, 84%, 31%, 0.116); 
+}
+/* Estilo para las opciones dentro del select */
+.input-container select option {
+  background: hsla(261, 84%, 31%, 0.116); /* Fondo blanco para las opciones */
+  color: #000; /* Color del texto de las opciones */
+}
+
+/* Estilo para las opciones al pasar el mouse */
+.input-container select option:hover {
+  background: hsla(261, 84%, 31%, 0.116); /* Fondo al pasar el mouse */
+}
+
+.input-container input::placeholder {
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+
+.cssbuttons-io-button {
+  background: #5321a3;
+  color: white;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cssbuttons-io-button:hover {
+  background: #8640ff;
+}
+

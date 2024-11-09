@@ -1,0 +1,193 @@
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: hsla(261, 84%, 31%, 0.384);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Mantiene el header en la parte superior */
+  top: 20px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  z-index: 1000;
+}
+
+
+
+
+/* Logo */
+.header-logo img {
+  width: 250px;
+}
+
+/* Botón de perfil */
+.profile-button {
+  background-color: #5321a3;
+  color: #ffffff;
+  border: none;
+  padding: 7px 50px; /* Ajusta el padding para que se vea más proporcionado */
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+
+
+.profile-button-container {
+  display: flex; /* Hacer que el contenedor use flexbox */
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+.profile-button-container a {
+  padding: 12px; /* Padding del enlace */
+  margin-right: 4px; /* Margen derecho para separar del botón */
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  color: #eeeeee; /* Cambia el color del texto del enlace, si es necesario */
+  text-decoration: underline;
+}
+
+.profile-button:hover {
+  transform: scale(1.05);
+}
+
+/* Menú desplegable */
+.profile-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 8px;
+}
+
+.profile-menu p.close-menu {
+  text-align: right;
+  cursor: pointer;
+  margin: 0;
+  font-weight: bold;
+  color: #5321a3;
+}
+
+.profile-menu a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  padding: 5px 0;
+}
+
+.profile-menu a:hover {
+  color: #7f3ceb;
+}
+
+
+.calendar-container {
+  margin-top: 100px; /* Para no superponerse con el header */
+  padding: 20px;
+  width: 90%;
+  height: 75vh;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: hsla(261, 84%, 31%, 0.116);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.month-display {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.button-container {
+  
+  justify-content: space-between; /* Centra los botones */
+  display: flex; /* Hacer que el contenedor use flexbox */
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+
+button {
+  background-color: #5321a3;
+  color: #ffffff;
+  border: none;
+  padding: 7px 50px; /* Ajusta el padding para que se vea más proporcionado */
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+
+
+.button {
+  display: flex; /* Hacer que el contenedor use flexbox */
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+
+.mwl-calendar-month-view {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  height: calc(100% - 60px); /* Ajusta la altura para dejar espacio para los botones */
+  border-radius: 10px;
+  overflow: hidden; /* Evita que el calendario se salga del contenedor */
+}
+
+/* Fondo para todo el contenedor del calendario */
+::ng-deep mwl-calendar-month-view {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Fondo para las celdas de los días */
+::ng-deep mwl-calendar-month-view .cal-cell, 
+::ng-deep mwl-calendar-month-view .cal-day-cell {
+  background-color: hsla(261, 84%, 31%, 0.1); /* Fondo semitransparente */
+  color: #000000; /* Color de texto para contraste */
+  border: none; /* Quita los bordes de las celdas */
+}
+
+/* Fondo para el encabezado del calendario (días de la semana) */
+::ng-deep mwl-calendar-month-view .cal-header,
+::ng-deep mwl-calendar-month-view .cal-header .cal-cell {
+  background-color: hsla(261, 84%, 31%, 0.2);
+  color: #000000;
+}
+
+
+
+
+
+.reminder-list {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f4f4f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reminder-list h3 {
+  font-size: 18px;
+  color: #000000;
+}
+
+.reminder-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.reminder-list li {
+  padding: 5px 0;
+  font-size: 16px;
+}
+

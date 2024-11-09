@@ -1,0 +1,164 @@
+/* Reiniciar márgenes y padding para todo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background:none;
+  }
+  
+  body, html {
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .registration-container {
+    height: 50%; /* La altura del contenedor será 100% de la pantalla */
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    background:none;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+  }
+  
+  .registration-form {
+    
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    
+  }
+  
+  .logo {
+    margin-bottom: 20px;
+  }
+  
+  .logo img {
+    width: 300px;
+  }
+  
+  .registration-form h2 {
+  
+    font-size: 24px;
+    color: #ffffff;  
+  }
+
+  
+  .registration-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ffffff;
+    text-align: left; /* Alinear las etiquetas a la izquierda */
+  }
+  
+  .registration-form input, 
+  .registration-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #ffffff;
+  }
+  
+ /* Estilo general del select para quitar el fondo */
+.registration-form select {
+  background-color: transparent; /* Fondo transparente */
+  color: #ffffff; /* Color del texto */
+  border: 1px solid #ffffff;
+  padding: 10px;
+}
+
+/* Opciones del menú desplegable */
+.registration-form select option {
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+  color: #ffffff; /* Color de las opciones */
+}
+
+/* Quita la sombra del select en algunos navegadores */
+.registration-form select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+  
+ /* Contenedor para centrar el botón y el texto */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar el contenido horizontalmente */
+  margin-top: 20px; /* Ajusta el espaciado superior según necesites */
+}
+
+.cssbuttons-io-button {
+  text-align: center;
+  background: #5321a3;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border-color: #ffffff;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  width: 20.3em;
+  padding-right: 3.3em;
+  cursor: pointer;
+  margin-bottom: 1em; /* Espacio entre el botón y el texto */
+}
+
+.cssbuttons-io-button .icon {
+  background: white;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #7b52b9;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}
+
+
+
+  @media (max-width: 768px) {
+    .registration-container {
+      flex-direction: column;
+    }
+
+    .form-side, .image-side {
+      flex-basis: auto;
+    }
+  }
+  

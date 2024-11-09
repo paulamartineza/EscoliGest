@@ -1,0 +1,46 @@
+<!-- Encabezado del componente -->
+<div class="header">
+  <div class="header-logo">
+    <a routerLink="/inicio">
+      <img src="/assets/images/logo.png" alt="Logo" />
+    </a>
+  </div>
+  <div class="profile-button-container">
+    <a routerLink="/inicio">Inicio</a>
+    <button class="profile-button" (click)="toggleMenu()">Perfil</button>
+    <div class="profile-menu" *ngIf="menuOpen">
+      <p class="close-menu" (click)="toggleMenu()">✖</p>
+      <a routerLink="/profile">Mi perfil</a>
+      <a routerLink="/">Cerrar sesión</a>
+    </div>
+  </div>
+</div>
+
+<!-- Contenido principal del calendario -->
+<div class="calendar-container">
+  <div class="month-display">{{ viewDate | date: 'MMMM YYY' }}</div>
+  <div class="button-container">
+    <button (click)="prevMonth()">⬅️ Mes anterior</button>
+    <button routerLink="/reminder-editor"> Editar Recordatorio</button>
+    <button routerLink="/reminder-new">Crear Recordatorio</button>
+    <button (click)="nextMonth()">Mes siguiente ➡️</button>
+  </div>
+
+  <div class="calendar-wrapper">
+    <mwl-calendar-month-view 
+      *ngIf="view === CalendarView.Month"
+      [viewDate]="viewDate"
+      [events]="events"
+      (dayClicked)="dayClicked($event.day.date)">
+    </mwl-calendar-month-view>
+  </div>
+
+  <!-- Lista de recordatorios para el día seleccionado -->
+  <div *ngIf="selectedDate" class="reminder-list">
+    <h3>Recordatorios para el {{ selectedDate | date: 'fullDate' }}</h3>
+    <ul>
+      <li *ngFor="let event of filteredEvents">{{ event.title }}</li>
+    </ul>
+    <p *ngIf="filteredEvents.length === 0">No hay recordatorios para este día.</p>
+  </div>
+</div>
