@@ -1,0 +1,13 @@
+<div *ngIf="userData">
+  <h2>Perfil de {{ userData.name }}</h2>
+  <p>Correo electrónico: {{ userData.email }}</p>
+  <p>Teléfono: {{ userData.phone }}</p>
+  <p>Rol: {{ userData.role }}</p>
+</div>
+
+    <div class="profile-buttons">
+      <button (click)="goToHome()">Volver a Inicio</button>
+      <button (click)="saveChanges()">Guardar Cambios</button>
+    </div>
+  </div>
+  

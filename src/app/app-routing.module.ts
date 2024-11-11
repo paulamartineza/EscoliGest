@@ -11,7 +11,8 @@ import { ReminderNewComponent } from './pages/reminders/reminder-new/reminder-ne
 import { ReminderEditorComponent } from './pages/reminders/reminder-editor/reminder-editor.component';
 import { PopupWindowOneComponent } from './pages/reminders/popup-window-one/popup-window-one.component';
 import { PopupWindowTwoComponent } from './pages/reminders/popup-window-two/popup-window-two.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { AuthService } from './pages/auth/auth.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'reminder-editor', component: ReminderEditorComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'popup-window-one', component: PopupWindowOneComponent},
-  {path: 'popup-window-two', component: PopupWindowTwoComponent}
+  {path: 'popup-window-two', component: PopupWindowTwoComponent},
+  {path: 'auth.servicie', component: AuthService}
 
 ];
 
