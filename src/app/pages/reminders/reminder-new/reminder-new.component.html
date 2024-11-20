@@ -1,52 +1,23 @@
-<div class="header">
-    <div class="header-logo">
-      <a routerLink="/">
-        <img src="/assets/images/logo.png" alt="Logo" />
-      </a>
-    </div>
-    <div class="profile-button-container">
-        <a routerLink="/inicio">Inicio</a>
-      <button class="profile-button" (click)="toggleMenu()">Perfil</button>
-      <div class="profile-menu" *ngIf="menuOpen">
-        <p class="close-menu" (click)="toggleMenu()">✖</p>
-        <a routerLink="/profile">Mi perfil</a>
-        <a routerLink="/">Cerrar sesión</a>
-      </div>
-    </div>
-  </div>
-  
-  <div class="form-container">
-    <form [formGroup]="reminderForm" (ngSubmit)="onCreateReminder()" class="form">
-      <h2 class="form-title">Crear Recordatorio</h2>
-  
-      <div class="input-container">
-        <input formControlName="fecha" type="date" placeholder="Fecha" />
-      </div>
-  
-      <div class="input-container">
-        <input formControlName="hora" type="time" placeholder="Hora" />
-      </div>
-  
-      <div class="input-container">
-        <select formControlName="tipo">
-          <option value="" disabled selected>Selecciona un tipo</option>
-          <option *ngFor="let type of reminderTypes" [value]="type.value">
-            {{ type.label }}
-          </option>
-        </select>
-      </div>
-  
-      <div class="input-container">
-        <input formControlName="nombre" type="text" placeholder="Nombre" />
-      </div>
-  
-      <div class="input-container" >
-        <input formControlName="descripcion" type="text" placeholder="Descripción" />
-      </div>
-  
-      <button type="submit" class="cssbuttons-io-button" routerLink="/popup-window-one">
-        Crear Recordatorio
-      </button>
-    </form>
-  </div>
-  
+<div class="reminder-form-container">
+  <h2>Crear Nuevo Recordatorio</h2>
+  <form [formGroup]="reminderForm" (ngSubmit)="onCreateReminder()">
+    <label for="nombre">Nombre del Recordatorio</label>
+    <input id="nombre" formControlName="nombre" type="text" />
+
+    <label for="tipo">Tipo</label>
+    <select id="tipo" formControlName="tipo">
+      <option *ngFor="let type of reminderTypes" [value]="type.value">{{ type.label }}</option>
+    </select>
+
+    <label for="fecha">Fecha</label>
+    <input id="fecha" formControlName="fecha" type="date" />
+
+    <label for="hora">Hora</label>
+    <input id="hora" formControlName="hora" type="time" />
+
+    <label for="descripcion">Descripción</label>
+    <textarea id="descripcion" formControlName="descripcion"></textarea>
+
+    <button type="submit" [disabled]="reminderForm.invalid">Crear Recordatorio</button>
+  </form>
+</div>

@@ -1,113 +1,94 @@
-
-import { Component } from '@angular/core';
-import{CalendarEvent, CalendarView} from 'angular-calendar';
-import { startOfDay, endOfDay, addMonths, subMonths, isSameDay} from 'date-fns';
-
-interface Reminder {
-  
-  message: string;
-  date?: Date;
-}
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ReminderService } from 'src/app/services/reminder.service';
+import { AuthService } from 'src/app/pages/auth/auth.service';
 
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })
-export class CalendarComponent {
-
-  daysInMonth: Date[] = [];  
-  selectedReminder: any = null;  
+export class CalendarComponent implements OnInit {
   menuOpen = false;
-  activeDayIsOpen = false; 
-  view: CalendarView = CalendarView.Month;
-  viewDate: Date = new Date();
-  CalendarView = CalendarView;
-  selectedDate: Date | null = null; /*día seleccionado*/
+  reminders: any[] = []; // Lista de recordatorios
+  currentIndex = 0; // Índice del recordatorio actual
+  selectedReminder: any = null; // Recordatorio seleccionado
+  userId!: string; // ID del usuario autenticado
 
-  events: CalendarEvent[] = [
-    {
-      start: startOfDay(new Date()),
-      end: endOfDay(new Date()),
-      title: 'Un evento importante',
-      draggable: false,
-      resizable: {
-        beforeStart: false,
-        afterEnd: false,
-      },
-    },
-    {
-      start: startOfDay(addMonths(new Date(), -1)),
-      end: endOfDay(addMonths(new Date(), -1)),
-      title: 'Evento del mes pasado',
-      draggable: false,
-      resizable: {
-        beforeStart: false,
-        afterEnd: false,
-      },
-    }
-  ];
+  constructor(
+    private router: Router,
+    private reminderService: ReminderService,
+    private authService: AuthService
+  ) {}
 
-  filteredEvents: CalendarEvent[] = []; // Eventos filtrados para el día seleccionado
-
-  setView(view: CalendarView) {
-    this.view = view;
-  }
-
-  prevMonth() {
-    this.viewDate = subMonths(this.viewDate, 1);
-  }
-
-  nextMonth() {
-    this.viewDate = addMonths(this.viewDate, 1);
-  }
-
-  dayClicked(day: Date) {
-    this.selectedDate = day;
-    this.filteredEvents = this.events.filter(event => isSameDay(event.start, day));
-  }
-
-  addEvent(title: string, date: Date) {
-    this.events = [
-      ...this.events,
-      {
-        title,
-        start: startOfDay(date),
-        end: endOfDay(date),
-        draggable: false,
-        resizable: {
-          beforeStart: false,
-          afterEnd: false,
-        }
+  ngOnInit(): void {
+    // Obtener el ID del usuario autenticado
+    this.authService.getUserId().subscribe(userId => {
+      if (userId) {
+        this.userId = userId; // Guardar el ID del usuario
+        this.loadReminders(userId); // Cargar los recordatorios iniciales
       }
-    ];
+    });
+
+    // Escuchar actualizaciones de los recordatorios
+    this.reminderService.onRemindersUpdated().subscribe(() => {
+      if (this.userId) {
+        this.loadReminders(this.userId); // Recargar los recordatorios
+      }
+    });
   }
 
-  
+  // Cargar los recordatorios del usuario autenticado
+  loadReminders(userId: string) {
+    this.reminderService.getUserReminders(userId).subscribe(reminders => {
+      this.reminders = reminders;
+      if (this.reminders.length > 0) {
+        this.setCurrentReminder(); // Establecer el primer recordatorio
+      }
+    });
+  }
+
+  // Obtener el recordatorio actual
+  get currentReminder() {
+    return this.reminders[this.currentIndex];
+  }
+
+  // Configurar el recordatorio actual
+  setCurrentReminder() {
+    if (this.reminders.length > 0) {
+      this.currentIndex = Math.max(0, Math.min(this.currentIndex, this.reminders.length - 1));
+    }
+  }
+
+  previousReminder() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.setCurrentReminder();
+    }
+  }
+
+  nextReminder() {
+    if (this.currentIndex < this.reminders.length - 1) {
+      this.currentIndex++;
+      this.setCurrentReminder();
+    }
+  }
+
+  isFirstReminder() {
+    return this.currentIndex === 0;
+  }
+
+  isLastReminder() {
+    return this.currentIndex === this.reminders.length - 1;
+  }
+
+  editReminder(reminder: any) {
+    this.router.navigate(['/reminder-editor'], {
+      queryParams: { nombre: reminder.nombre, fecha: reminder.fecha }
+    });
+  }
+
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
-
-
-
-  closeOpenMonthViewDay(){
-    this.activeDayIsOpen = false;
-  }
-
-
-  getRemindersForDate(day: Date): Reminder[] {
-    // Aquí podrías obtener y devolver un array de recordatorios específicos para la fecha
-    return [
-      { message: "Recordatorio 1",  date: new Date() },
-      { message: "Recordatorio 2",  date: new Date() }
-    ];
-  }
-
-  selectDay(day: Date) {
-    // Este método se llama cuando el usuario selecciona un día del calendario
-    // Aquí podrías actualizar `selectedReminder` con el recordatorio para ese día
-    this.selectedReminder = this.getRemindersForDate(day)[0] || null; // Ejemplo de asignación
-  }
-
-
 }

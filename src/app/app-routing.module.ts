@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
@@ -12,21 +12,20 @@ import { ReminderEditorComponent } from './pages/reminders/reminder-editor/remin
 import { PopupWindowOneComponent } from './pages/reminders/popup-window-one/popup-window-one.component';
 import { PopupWindowTwoComponent } from './pages/reminders/popup-window-two/popup-window-two.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { AuthService } from './pages/auth/auth.service';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'calendar', component: CalendarComponent },
   { path: 'documents', component: DocumentsComponent },
   { path: 'inicio', component: InicioComponent },
-  { path: 'reminder-new', component: ReminderNewComponent},
   {path: 'reminder-editor', component: ReminderEditorComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'popup-window-one', component: PopupWindowOneComponent},
   {path: 'popup-window-two', component: PopupWindowTwoComponent},
-  {path: 'auth.servicie', component: AuthService}
+  {path: 'calendar', component: CalendarComponent},
+  {path: 'reminder-new', component: ReminderNewComponent}
 
 ];
 

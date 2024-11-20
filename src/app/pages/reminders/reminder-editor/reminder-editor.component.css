@@ -50,11 +50,7 @@
     color: #eeeeee; /* Cambia el color del texto del enlace, si es necesario */
     text-decoration: underline;
   }
-  
-  .profile-button:hover {
-    transform: scale(1.05);
-  }
-  
+ 
   /* Menú desplegable */
   .profile-menu {
     position: absolute;
@@ -82,10 +78,7 @@
     padding: 5px 0;
   }
   
-  .profile-menu a:hover {
-    color: #7f3ceb;
-  }
-  
+
   /* Estilo del contenedor del formulario */
   .form-container {
     max-width: 400px;
@@ -146,9 +139,6 @@
   }
   
   /* Estilo para las opciones al pasar el mouse */
-  .input-container select option:hover {
-    background: hsla(261, 84%, 31%, 0.116); /* Fondo al pasar el mouse */
-  }
   
   .input-container input::placeholder {
     color: #ffffff;
@@ -165,10 +155,6 @@
     justify-content: center;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .cssbuttons-io-button:hover {
-    background: #8640ff;
   }
   
   

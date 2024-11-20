@@ -1,13 +1,27 @@
-<div *ngIf="userData">
-  <h2>Perfil de {{ userData.name }}</h2>
-  <p>Correo electrónico: {{ userData.email }}</p>
-  <p>Teléfono: {{ userData.phone }}</p>
-  <p>Rol: {{ userData.role }}</p>
-</div>
-
-    <div class="profile-buttons">
-      <button (click)="goToHome()">Volver a Inicio</button>
-      <button (click)="saveChanges()">Guardar Cambios</button>
+<!-- Encabezado del componente -->
+<div class="header">
+  <div class="header-logo">
+    <a routerLink="/inicio">
+      <img src="/assets/images/logo.png" alt="Logo" />
+    </a>
+  </div>
+  <div class="profile-button-container">
+    <button class="profile-button" (click)="toggleMenu()">Inicio</button>
+    <div class="profile-menu" *ngIf="menuOpen">
+      <p class="close-menu" (click)="toggleMenu()">✖</p>
+      <a routerLink="/inicio">Inicio</a>
+      <a routerLink="/">Cerrar sesión</a>
     </div>
   </div>
-  
+</div>
+
+<div class="container-body">
+<div *ngIf="userProfile" class="profile-container">
+  <h2>Perfil del Usuario</h2>
+  <p><strong>Nombre:</strong> {{ userProfile.name }}</p>
+  <p><strong>Correo:</strong> {{ userProfile.email }}</p>
+  <p><strong>Teléfono:</strong> {{ userProfile.phone }}</p>
+  <p><strong>Rol:</strong> {{ userProfile.role }}</p>
+</div>
+<p *ngIf="!userProfile" class="loading-message">Cargando datos del perfil...</p>
+</div>

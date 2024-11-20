@@ -46,9 +46,6 @@
   text-decoration: underline;
 }
 
-.profile-button:hover {
-  transform: scale(1.05);
-}
 
 /* Menú desplegable */
 .profile-menu {
@@ -62,28 +59,15 @@
   margin-top: 8px;
 }
 
-.profile-menu p.close-menu {
+.profile-menu p.close-menu a.profile-menu {
   text-align: right;
   cursor: pointer;
   margin: 0;
   font-weight: bold;
-  color: #5321a3;
-}
-
-.profile-menu a {
   display: block;
   color: #000;
   text-decoration: none;
   padding: 5px 0;
-}
-
-.profile-menu a:hover {
-  color: #7f3ceb;
-}
-
-html, body {
-  height: 100%; /* Asegúrate de que el body ocupe toda la altura */
-  margin: 0; /* Elimina el margen por defecto */
 }
 
 .container {
@@ -104,8 +88,7 @@ html, body {
 .card {
  padding: 40px;
   width: 400px;
-  
-    margin-top: 90px;
+  margin-top: 90px;
   height: 200px; /* Permite que la tarjeta ajuste su altura automáticamente */
   min-height: 220px; /* Altura mínima para mantener una buena presentación */
   background: hsla(261, 84%, 31%, 0.116);
@@ -135,12 +118,7 @@ html, body {
   color: rgb(255, 255, 255);
 }
 
-/* Estilos para los botones */
-.buttonContainer {
-  display: flex;
-  gap: 20px; /* Espaciado entre botones */
-  flex-direction: row;
-}
+
 
 /* Botón de aceptación */
 .calendarButton {
@@ -170,16 +148,4 @@ html, body {
   border-radius: 20px;
   box-shadow: 0 4px 4px -1px #bebdbd5e, 0 2px 4px -1px #bebdbd5e;
   transition: all .6s ease;
-}
-
-.inicioButton:hover {
-  background-color: #b9b9b9;
-  box-shadow: 0 6px 7px -3px #bebdbd79, 0 4px 6px -2px #bebdbd79;
-  transition-duration: .2s;
-}
-
-.calendarButton:hover {
-  background-color: #7858eb8c;
-  box-shadow: 0 6px 7px -3px #977ef350, 0 4px 6px -2px #977ef350;
-  transition-duration: .2s;
 }

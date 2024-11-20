@@ -15,8 +15,34 @@
     </div>
   </div>
   
-  <div class="form-container">
-    <form [formGroup]="reminderForm" (ngSubmit)="onEditReminder()" class="form">
+  <!-- <div class="form-container">
+    <form [formGroup]="reminderForm" (ngSubmit)="onUpdateReminder()">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" formControlName="nombre" />
+     -->
+      <!-- <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" formControlName="descripcion"></textarea>
+    
+      <label for="fecha">Fecha</label>
+      <input id="fecha" type="date" formControlName="fecha" />
+    
+      <label for="hora">Hora</label>
+      <input id="hora" type="time" formControlName="hora" />
+    
+      <label for="tipo">Tipo</label>
+      <select id="tipo" formControlName="tipo">
+        <option value="cita_medica">Cita Médica</option>
+        <option value="examen_medico">Examen Médico</option>
+        <option value="autorizacion">Autorización</option>
+        <option value="terapia">Terapia</option>
+      </select>
+    
+      <button type="submit">Actualizar</button>
+    </form>
+     --> 
+
+    
+    <!-- <form [formGroup]="reminderForm" (ngSubmit)="onEditReminder()" class="form">
       <h2 class="form-title">Editar Recordatorio</h2>
   
       <div class="input-container">
@@ -47,6 +73,6 @@
       <button type="submit" class="cssbuttons-io-button" routerLink="/popup-window-two">
         Editar Recordatorio
       </button>
-    </form>
-  </div>
+    </form> -->
+  <!-- </div> -->
   

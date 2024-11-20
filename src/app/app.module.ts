@@ -8,10 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
-import { provideAuth, getAuth } from '@angular/fire/auth';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment'; // tu configuración de Firebase
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -25,8 +23,9 @@ import { ReminderNewComponent } from './pages/reminders/reminder-new/reminder-ne
 import{ ReminderEditorComponent} from'./pages/reminders/reminder-editor/reminder-editor.component';
 import { PopupWindowOneComponent } from './pages/reminders/popup-window-one/popup-window-one.component';
 import { PopupWindowTwoComponent } from './pages/reminders/popup-window-two/popup-window-two.component';
-import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthService } from './pages/auth/auth.service';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ReminderService } from './services/reminder.service';
 
 @NgModule({
   declarations: [
@@ -35,13 +34,14 @@ import { AuthService } from './pages/auth/auth.service';
     LoginComponent,
     RegisterComponent,
     CalendarComponent,
+    ReminderNewComponent,
     DocumentsComponent,
     InicioComponent,
-    ReminderNewComponent,
     ReminderEditorComponent,
     PopupWindowOneComponent,
     PopupWindowTwoComponent,
-    ProfileComponent
+    ProfileComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -59,7 +59,10 @@ import { AuthService } from './pages/auth/auth.service';
   ],
 
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [
+    AuthService, 
+    ReminderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
