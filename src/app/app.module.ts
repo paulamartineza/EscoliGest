@@ -5,10 +5,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { FormsModule } from '@angular/forms'; // <-- Importa FormsModule
 import { AppRoutingModule } from './app-routing.module';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { environment } from '../environments/environment'; // tu configuración de Firebase
+// importaciones de Firebase eliminadas
 
 
 import { AppComponent } from './app.component';
@@ -25,7 +22,7 @@ import { PopupWindowOneComponent } from './pages/reminders/popup-window-one/popu
 import { PopupWindowTwoComponent } from './pages/reminders/popup-window-two/popup-window-two.component';
 import { AuthService } from './pages/auth/auth.service';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { ReminderService } from './services/reminder.service';
+//import { ReminderService } from './services/reminder.service';
 
 @NgModule({
   declarations: [
@@ -49,9 +46,7 @@ import { ReminderService } from './services/reminder.service';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),  // Inicializa Firebase con tu configuración
-    AngularFirestoreModule,  // Importa el módulo de Firestore
-    AngularFireAuthModule,
+  // Módulos de Firebase eliminados
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
@@ -61,7 +56,7 @@ import { ReminderService } from './services/reminder.service';
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     AuthService, 
-    ReminderService
+    //ReminderService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,61 +1,44 @@
 // auth.service.ts
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/compat/auth'; // Asegúrate de tener importado AngularFireAuth
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'; // Asegúrate de importar map para transformar los datos
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  currentUser: any = null; // Para almacenar el usuario actual, puedes usar un tipo más específico si lo deseas
+  currentUser: any = null;
 
-  constructor(private auth: Auth, private router: Router, private afAuth: AngularFireAuth) {
-    // Escucha el estado de autenticación desde el constructor y actualiza el usuario
-    this.afAuth.authState.subscribe(user => {
-      this.currentUser = user;
-    });
+  constructor(private router: Router) {
+    // Simulación: usuario no autenticado
+    this.currentUser = null;
   }
-    
-  // Método para obtener el ID del usuario actual como un Observable
+
+  // Simulación: obtener el ID del usuario actual
   getUserId(): Observable<string | null> {
-    return this.afAuth.authState.pipe(
-      map(user => user?.uid || null)
-    );
+    return of(null); // Devuelve null porque no hay backend
   }
 
-  // Método para registrar un nuevo usuario
+  // Simulación: registrar un nuevo usuario
   async register(email: string, password: string) {
-    try {
-      const userCredential = await createUserWithEmailAndPassword(this.auth, email, password);
-      return userCredential.user;
-    } catch (error) {
-      console.error('Error al registrar el usuario:', error);
-      throw error;
-    }
+    // Aquí deberías conectar con tu backend real
+    throw new Error('Funcionalidad de registro no implementada.');
   }
 
-  // Método para iniciar sesión
+  // Simulación: iniciar sesión
   async login(email: string, password: string) {
-    try {
-      const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
-      return userCredential.user;
-    } catch (error) {
-      console.error('Error al iniciar sesión:', error);
-      throw error;
-    }
+    // Aquí deberías conectar con tu backend real
+    throw new Error('Funcionalidad de login no implementada.');
   }
 
-  // Método para cerrar sesión
+  // Simulación: cerrar sesión
   async logout() {
-    await signOut(this.auth);
+    this.currentUser = null;
     this.router.navigate(['/login']);
   }
 
-  // Método para obtener el estado actual del usuario
+  // Simulación: obtener el estado actual del usuario
   getCurrentUser(): Observable<any> {
-    return this.afAuth.authState;
+    return of(null); // Devuelve null porque no hay backend
   }
 }

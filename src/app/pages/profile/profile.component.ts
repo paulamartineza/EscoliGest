@@ -1,6 +1,5 @@
 // src/app/pages/profile/profile.component.ts
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,28 +11,14 @@ export class ProfileComponent implements OnInit {
   maskedPassword: string = '';
   menuOpen = false;
 
-  
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
 
-
-
-  constructor(private userService: UserService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.userService.getUserProfile().subscribe(
-      (profile) => {
-        if (profile) {
-          this.userProfile = profile;
-          console.log('Perfil del usuario:', profile);
-        } else {
-          console.log('No hay un usuario autenticado.');
-        }
-      },
-      (error) => {
-        console.error('Error al obtener el perfil del usuario:', error);
-      }
-    );
+    // Simulación: no hay perfil de usuario
+    this.userProfile = null;
   }
 }

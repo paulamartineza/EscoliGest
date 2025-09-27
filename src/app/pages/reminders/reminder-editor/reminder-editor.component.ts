@@ -1,10 +1,7 @@
 // src/app/pages/reminders/reminder-new/reminder-new.component.ts
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-
-import { ReminderService } from 'src/app/services/reminder.service';
-
 
 @Component({
   selector: 'app-reminder-editor',
@@ -32,8 +29,7 @@ export class ReminderEditorComponent {
 
   constructor(
     private fb: FormBuilder,
-    private route: ActivatedRoute,
-    private reminderService: ReminderService
+    private route: ActivatedRoute
   ) {
     this.reminderForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.maxLength(50)]],
@@ -44,42 +40,11 @@ export class ReminderEditorComponent {
     });
   }
   
-// ngOnInit() {
-//   // Obtener el ID del recordatorio desde la URL
-//   this.reminderId = this.route.snapshot.paramMap.get('id') || '';
-
-//   // Recuperar datos del recordatorio desde Firebase
-//   this.reminderService.getReminderById(this.reminderId).subscribe((data) => {
-//     this.reminderData = data;
-
-//     // Poblamos el formulario con los datos del recordatorio
-//     this.reminderForm.patchValue(this.reminderData);
-//   });
-// }
-// onUpdateReminder() {
-//   if (this.reminderForm.valid) {
-//     this.reminderService.updateReminder(this.reminderId, this.reminderForm.value)
-//       .then(() => {
-//         console.log('Recordatorio actualizado correctamente');
-//       })
-//       .catch((error) => {
-//         console.error('Error al actualizar el recordatorio:', error);
-//       });
-//   } else {
-//     console.log('Formulario no válido');
-//   }
-// }
-
-  
+  // Simulación: actualizar recordatorio
+  onUpdateReminder() {
+    if (this.reminderForm.valid) {
+      alert('Funcionalidad de editar recordatorio no implementada.');
+    }
+  }
 }
-
-  // onEditReminder() {
-  //   if (this.reminderForm.valid) {
-  //     const reminderData = this.reminderForm.value;
-  //     console.log('Recordatorio creado:', reminderData);
-  //     this.reminderForm.reset(); // Limpia el formulario después de crear el recordatorio
-  //   } else {
-  //     console.log('Formulario no válido');
-  //   }
-  // }
 
